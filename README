@@ -25,7 +25,8 @@ Finally, add the python scripts to your crontab:
 # m    h  dom mon dow   command
   *    *  *   *   *     cd /home/mononofu/pyADL && DISPLAY=:0.0 python save_stats.py > /dev/null
   *    *  *   *   *     cd /home/mononofu/pyADL && python export_stats.py -t 4 -r 20 > /var/www/stats/04hour.csv
-  */10 *  *   *   *     cd /home/mononofu/pyADL && python export_stats.py -t 24 -r
+  */10 *  *   *   *     cd /home/mononofu/pyADL && python export_stats.py -t 24 -r 120 > /var/www/stats/24hour.csv
+
 
 Of course, change the paths so they fit your system. All paths and settings for 
 the python scripts are in config.py
