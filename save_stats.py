@@ -1,19 +1,19 @@
 import sqlite3
 import ADL
 import time
+import config
 
-ADL.SetupADL(0)
+ADL.SetupADL(config.device_number)
 
-update_frequency = 6    # updates per minute
 
-for i in range(update_frequency):
-    conn = sqlite3.connect("/home/mononofu/pyADL/stats.sqlite")
+for i in range(config.update_frequency):
+    conn = sqlite3.connect(config.db_file)
     c = conn.cursor()
 
     c.execute("create table if not exists stats (time REAL, load INTEGER, temp REAL, fanspeed INTEGER, fanrpm INTEGER, hashrate REAL, efficiency REAL)")
 
     try:
-        hashrate, efficiency = open("/home/mononofu/phoenix-1.48/miner.log").readline().split(':')
+        hashrate, efficiency = open(config.miner_log).readline().split(':')
     except ValueError:
         hashrate, efficiency = (0, 0)
     hashrate = int(hashrate)
@@ -32,4 +32,4 @@ for i in range(update_frequency):
     conn.commit()
     c.close()
     conn.close()
-    time.sleep(60/update_frequency)
+    time.sleep(60/config.update_frequency)

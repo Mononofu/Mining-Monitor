@@ -17,6 +17,9 @@ amcharts. Also, its less shiny ;)
 All the files in the amcharts dir should go into some dir of your webserver - 
 I recommend nginx. You may need to adjust some paths.
 
+To get the hashrate info, put ConsoleLogger.py into your phoenix miner dir and
+replace the existing version.
+
 Finally, add the python scripts to your crontab:
 
 # m    h  dom mon dow   command

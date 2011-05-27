@@ -2,6 +2,7 @@ import time
 import datetime
 from optparse import OptionParser
 import sqlite3
+import config
 
 parser = OptionParser()
 parser.add_option("-t", "--timeframe", type="int", dest="timeframe",
@@ -11,7 +12,7 @@ parser.add_option("-r", "--resolution", type="int", dest="resolution",
 
 (options, args) = parser.parse_args()
 
-conn = sqlite3.connect("stats.sqlite")
+conn = sqlite3.connect(config.db_file)
 c = conn.cursor()
 
 timest = []
@@ -35,7 +36,6 @@ for row in c:
 
 c.close()
 conn.close()
-
 
 # print the data points in csv format
 for i in range(len(timest)):
