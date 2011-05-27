@@ -33,3 +33,8 @@ Of course, change the paths so they fit your system. All paths and settings for 
 If you like this program, please consider donating: 
 12hRVCNM3jHeZ9h1oThUmSKHsnBcVimsaa
 I'm a poor student and need to eat too :\
+
+
+bitcoin_cost.py is an unrelated utility which simplifies some calculations
+for you. It grabs current bitcoin prices from Mt. Gox and calculates profits
+in euros.
