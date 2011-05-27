@@ -1,0 +1,28 @@
+Mining Monitor for Bitcoin
+
+With the default config, it will display GPU load, temperature and fanspeed.
+Using the patched ConsoleLogger from phoenix, it will also display your hashrate.
+
+For an example how it looks like, go to 
+http://mononofus-dreambox.dyndns.org:8081/
+
+To get the GPU infos, you need pyADL:
+https://forum.bitcoin.org/index.php?topic=8451.0
+
+Put the python files of this monitor (config.py, save_stats.py and 
+export_stats.py) in the pyADL directory, so they can use it. graph_stats.py 
+will export the graphs directly to .png files and uses more CPU time than 
+amcharts. Also, its less shiny ;)
+
+All the files in the amcharts dir should go into some dir of your webserver - 
+I recommend nginx. You may need to adjust some paths.
+
+Finally, add the python scripts to your crontab:
+
+# m    h  dom mon dow   command
+  *    *  *   *   *     cd /home/mononofu/pyADL && DISPLAY=:0.0 python save_stats.py > /dev/null
+  *    *  *   *   *     cd /home/mononofu/pyADL && python export_stats.py -t 4 -r 20 > /var/www/stats/04hour.csv
+  */10 *  *   *   *     cd /home/mononofu/pyADL && python export_stats.py -t 24 -r
+
+Of course, change the paths so they fit your system. All paths and settings for 
+the python scripts are in config.py
