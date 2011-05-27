@@ -28,5 +28,8 @@ Finally, add the python scripts to your crontab:
   */10 *  *   *   *     cd /home/mononofu/pyADL && python export_stats.py -t 24 -r 120 > /var/www/stats/24hour.csv
 
 
-Of course, change the paths so they fit your system. All paths and settings for 
-the python scripts are in config.py
+Of course, change the paths so they fit your system. All paths and settings for the python scripts are in config.py
+
+If you like this program, please consider donating: 
+12hRVCNM3jHeZ9h1oThUmSKHsnBcVimsaa
+I'm a poor student and need to eat too :\
