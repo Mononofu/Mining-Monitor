@@ -76,9 +76,10 @@ class BitcoinCalculator:
         print "assuming %.2f Mhash per s" % self.mhash_per_s
         print "==> %.3f Mhash per J" % mhash_per_joule
         print "==> %s Mhash per euro" % locale.format("%.2f",
-                               mhash_per_euro,
-                               grouping=True)
-        print "energy cost: %.3f euro per bitcoin" % (cost_per_bitcoin)
+                                                      mhash_per_euro,
+                                                      grouping=True)
+        
+        print "energy cost: %.3f euro per bitcoin" % cost_per_bitcoin
         print ""
 
         eur_per_bitcoin = self.usd_per_bitcoin / self.eur_to_usd

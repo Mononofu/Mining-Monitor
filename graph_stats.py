@@ -1,8 +1,6 @@
 import sqlite3
-import numpy as np
 import matplotlib.pyplot as plt
 import time
-import matplotlib
 import datetime
 import matplotlib.dates as mdates
 from optparse import OptionParser
